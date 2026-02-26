@@ -67,7 +67,7 @@ $driverName = $selectedModel.Driver
 
 # Install the printer driver
 Write-Host "Installing printer driver..."
-Add-PrinterDriver -Name $driverName -InfPath $driverInfPath
+Add-PrinterDriver -Name $driverName
 
 # Create Standard TCP/IP port if it doesn't exist
 $portName = $printerIP
