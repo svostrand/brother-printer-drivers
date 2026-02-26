@@ -38,16 +38,16 @@ Write-Host "Detected OS architecture: $arch"
 # Set GDI folder in NinjaOne Downloads directory for driver files
 $gdiDir = Join-Path $ninjaScriptsDir "gdi"
 
-# Set path to the main INF file
-$driverInfPath = Join-Path $gdiDir "brimm20a.inf"
+# Set path to the main printer INF file
+$driverInfPath = Join-Path $gdiDir "BRPRM20A.INF"
 
 # Prompt for IP address
 $printerIP = Read-Host "Enter the printer IP address"
 
 # Prompt for printer model selection
 $models = @(
-	@{ Name = "MFC-EX915DW"; Driver = "Brother MFC-EX915DW LAN" },
-    @{ Name = "MFC-L5715DW"; Driver = "Brother MFC-L5715DW LAN" }
+    @{ Name = "MFC-EX915DW"; Driver = "Brother MFC-EX915DW series" },
+    @{ Name = "MFC-L5715DW"; Driver = "Brother MFC-L5715DW Printer" }
 )
 
 Write-Host "Select printer model:"
@@ -60,8 +60,8 @@ $modelIndex = Read-Host "Enter the number for the printer model (1-$($models.Cou
 
 $selectedModel = $models[$modelIndex-1]
 $printerName = $selectedModel.Name
-# Set the exact driver name as it appears in the INF file (update this if needed)
-$driverName = "Brother MFC-EX915DW"
+# Set the exact driver name as it appears in the printer INF file (update this if needed)
+$driverName = $selectedModel.Driver
 
 
 
