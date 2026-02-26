@@ -78,6 +78,12 @@ if (-not (Get-PrinterPort -Name $portName -ErrorAction SilentlyContinue)) {
 
 # Add the printer
 Write-Host "Adding printer..."
+$printerName = "DSD-OFFICE"
 Add-Printer -Name $printerName -DriverName $driverName -PortName $portName
 
 Write-Host "Printer installation complete."
+
+# # Set the installed printer as the default
+# Write-Host "Setting $printerName as the default printer..."
+# Set-Printer -Name $printerName -IsDefault $true
+# Write-Host "$printerName is now the default printer."
